@@ -21,7 +21,7 @@ app.post('/usuarios', async (req, res) => {
 
 })
 
-app.get('/usuarios', async (req, res) => {
+app.get('/usuarios', async (req, res) => {//listando usarios buscando  por idade ,nomees fazendo filtros
 
     let users = []
     if (req.query) {
