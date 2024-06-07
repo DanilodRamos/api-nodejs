@@ -1,10 +1,12 @@
-import express from 'express'                       //importanto biblioteca
+import express from 'express'
+import cors from 'cors'                      //importanto biblioteca
 import { PrismaClient } from '@prisma/client'
 
 const prisma = new PrismaClient()                   //variavel e importacao biblioteca prisma
 
 const app = express()
-app.use(express.json())                     //avisando que vai chegar no express json
+app.use(express.json())
+app.use(cors())                    //avisando que vai chegar no express json
 //criando usuarios post
 app.post('/usuarios', async (req, res) => {
 
@@ -12,8 +14,8 @@ app.post('/usuarios', async (req, res) => {
         data: {
             email: req.body.email,
             name: req.body.name,
-            age: req.body.age
-        }
+            age: req.body.age,
+        },
 
     })// mandando dentro do banco de dados essas requisiçoes
 
